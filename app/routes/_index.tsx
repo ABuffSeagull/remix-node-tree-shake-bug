@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 
 import type { V2_MetaFunction } from "@remix-run/node";
 
-import getTerm from "~/get-term";
+import process from "~/process";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -12,7 +12,7 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export function loader() {
-  assert.ok(getTerm());
+  assert.ok(process.env.TERM);
   return null;
 }
 
