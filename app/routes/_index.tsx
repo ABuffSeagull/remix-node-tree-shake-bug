@@ -1,4 +1,8 @@
+import assert from "node:assert/strict";
+
 import type { V2_MetaFunction } from "@remix-run/node";
+
+import getTerm from "~/get-term";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -6,6 +10,11 @@ export const meta: V2_MetaFunction = () => {
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
+
+export function loader() {
+  assert.ok(getTerm());
+  return null;
+}
 
 export default function Index() {
   return (
